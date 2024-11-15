@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP 2132 Hangman Project</title>
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Nonstandard-font from Google font server
+    Roboto font with two font weights (400,700)
+    Swap default font with Roboto after load -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/jquery-3.7.0.min.js" defer></script>
+    <script src="js/project.js" defer type="module"></script>   
+</head>
+<body>
+    <header>
+        <h1>COMP 2132 Hangman Project</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>  
+            <li><a href="#main">Game</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+        
+    <main>
+        <h2 id="title">Hangman</h2>
+        <section id="gameArea">
+            <img id="gallowContainer" src="" alt="Image Placeholder" />
+            <section id="guessedLetters">A B C D E F G H I J <br>K L M N O P Q R S T<br> U V W X Y Z</section>
+        </section>
+        <section>
+            <p id="wordReveal"></p>
+        </section>
+        <section id="gameControls">
+            <input type="text" id="guess" maxlength="1" placeholder="Enter a letter">
+            <button id="submitGuess">Guess</button>
+            <button id="startGame">Play Again</button>
+        </section>
+
+
+
+    </main>
+    <footer id="contact">
+        <p>
+            &copy; Jesse Singer: COMP 2132 Final Project<br>
+            jessesinger1@gmail.com
+        </p>
+    </footer>
+</body>
+</html>

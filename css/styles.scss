@@ -94,6 +94,12 @@ nav ul li a:hover {
     font-size: 30px;
 }
 
+#hint{
+    text-align: center;
+    font-size: 14px;
+    padding-top:8px;
+}
+
 #gameControls{
     display: flex;
     padding-top: 20px;
@@ -103,29 +109,27 @@ nav ul li a:hover {
     gap: 20px;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px 5px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: grey; 
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+#letters{
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-
-@mixin alphabetButtonStyle($bg-color-enabled, $bg-color-disabled, $text-color-enabled, $text-color-disabled, $click-color, $padding: 10px, $font-size: 16px) {
+@mixin alphabetButtonStyle($bg-color-enabled, $bg-color-disabled, $text-color-enabled, $text-color-disabled, $click-color, $padding: 10px, $font-size: 24px, $margin-topBot: 10px, $margin-rightLeft: 5px) {
     // General button styles
     padding: $padding;
+    margin: $margin-topBot $margin-rightLeft;
+    min-width: 40px; 
+    min-height: 40px; 
     font-size: $font-size;
     font-weight: bold;
+    
     border: none;
     border-radius: 5px;
     cursor: pointer;
-
-
 
     // Styles for enabled state
     background-color: $bg-color-enabled;
@@ -156,17 +160,7 @@ button {
     @include alphabetButtonStyle(grey, #d6d6d6, #fff, #aaa, red);
 }
 
-.imageWrapper {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    border: 3px solid #333; 
-    border-radius: 15px; 
-    padding: 5px; 
-    max-width: 500px;
-    margin: 0 auto;
-}
+
 
 img {
     align-items: center; 
@@ -174,36 +168,23 @@ img {
 }
 
 
-
 #winLosePopup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
+    position: absolute;
+    width: 450px;
+    height: 75px;
+    background-color: grey;   
+    
+    color:white;
+    font-weight: bold;
     border-radius: 10px;
     text-align: center;
-    display: none; /* Hidden by default */
-    z-index: 1000; /* To ensure it is above other content */
-}
 
-#popupHead{
+    opacity: 0;
+    z-index: 1000; /* Ensure it stays above other content */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;    
+    justify-content: center;  /* Horizontally center the text */
+    align-items: center;      /* Vertically center the text */
 }
-
-#closeButton{
-    height:35px;
-
-    justify-content: center;
-    text-align: center;
-}
-
-
 /* Responsive Styles */
 /* Mobile Devices */
 @media (max-width: 599px) {
@@ -225,17 +206,22 @@ img {
         max-width: 180px; /* Shrinks image further for small screens */
     }
 
-    .imageWrapper {
-        max-width: 300px; 
-    }
-
     button{
         font-size:10px;
     }
 
-    .popup {
-        width:200px;
-        transform: translate(-50%, -90%);
+    #letters {
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 2px; /* Reduce gap for small screens */
+    }
+
+    .alphabetButton {
+        padding: 8px;
+        font-size: 12px;
+        margin: 4px;
+        min-width: 25px; 
+        min-height: 10px; 
     }
 }
 
@@ -246,15 +232,17 @@ img {
     }
     img {
         max-width: 300px; /* Shrinks image further for small screens */
+    }  
+
+    .alphabetButton {
+        padding: 10px;
+        font-size: 14px;
+        margin: 6px;
     }
 
-    .imageWrapper {
-        max-width: 350px; 
-    }
-
-    .popup {
-        width:400px;
-        transform: translate(-50%, -90%); 
+    #winLosePopup {
+  
+        width: 250px;
     }
 }
 

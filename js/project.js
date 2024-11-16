@@ -19,3 +19,4 @@ word = wordFetcher.getWord();
 gameInstance = new HangmanGame(word.word);
 $gallowContainer.attr('src', `images/Gallows/Gallows0.png`);
 $wordReveal.text(gameInstance.getWordDisplay());
+$hint.text("Hint: " + word.hint);

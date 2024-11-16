@@ -32,14 +32,26 @@ function createAlphabetButtons() {
         const currentGuess = gameInstance.maxAttempts - gameInstance.attemptsLeft;
         $gallowContainer.attr('src', `images/Gallows/Gallows${currentGuess}.png`);
 
-        if (gameInstance.isGameOver()) {
-            disableAllButtons();
-            return; // If the game is over, don't allow any more guesses
-        }
-
         // Update the word display
         $wordReveal.text(gameInstance.getWordDisplay());
-  
+        
+        console.log(gameInstance.isGameOver());
+
+        if (gameInstance.isGameOver()) {
+            disableAllButtons();
+            
+            // Check if win
+            if(gameInstance.correctLetters.length === gameInstance.word.length){
+                $winLosePopup.text("You Win 😊!\nPlease play again");
+            }
+            // else is a loss
+            else{
+                $winLosePopup.text("You Lose 😞 The word was: " + gameInstance.word, "\nPlease play again");
+            }
+            
+            popupInterval = setInterval(popup, interval);
+            return; // If the game is over, don't allow any more guesses
+        }
       });
   
       // Append the button to the letters section
@@ -60,13 +72,17 @@ function newGame(){
     // Get a game instance with a new word
     word = wordFetcher.getWord();
     gameInstance    = new HangmanGame(word.word);
-    
-     // Reset 
+     // Reset picture
     $gallowContainer.attr('src', `images/Gallows/Gallows0.png`);
-    
+   
+    // Reset the popup
+    opacityValue = 0;
+    $winLosePopup.css("opacity", opacityValue);
+    clearInterval(popupInterval);
+
     // Update the word display
     $wordReveal.text(gameInstance.getWordDisplay());
-
+    $hint.text("Hint: " + word.hint);
 }
 
 // Function for play again button click
@@ -80,3 +96,18 @@ $playAgainButton.click(() => {
         button.disabled = false;
     });
     });
+
+
+function popup()
+{
+    opacityValue += incrementer;
+    if(opacityValue >= 1)
+    {
+        opacityValue = 1;
+        return;
+    }
+    
+    $winLosePopup.css("opacity", opacityValue);
+}    
+ 
+    

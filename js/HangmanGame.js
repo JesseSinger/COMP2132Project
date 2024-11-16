@@ -33,7 +33,14 @@ class HangmanGame {
         this.guessedLetters.push(letter);
 
         if (this.word.includes(letter)) {
-            this.correctLetters.push(letter);
+            // Need to add letter to correctLetters array
+            // But could be multiple instances of the letter!
+            for (let existingLetter of this.word){
+                if(existingLetter === letter){
+                    this.correctLetters.push(letter);
+                }                
+            }
+
             return true; 
         }
         else {

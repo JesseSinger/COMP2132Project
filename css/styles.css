@@ -223,6 +223,9 @@ img {
     min-width: 25px;
     min-height: 10px;
   }
+  #winLosePopup {
+    width: 250px;
+  }
 }
 /* Tablets and Small Desktops */
 @media (min-width: 600px) and (max-width: 800px) {

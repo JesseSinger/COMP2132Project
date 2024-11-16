@@ -35,18 +35,16 @@ function createAlphabetButtons() {
         // Update the word display
         $wordReveal.text(gameInstance.getWordDisplay());
         
-        console.log(gameInstance.isGameOver());
-
         if (gameInstance.isGameOver()) {
             disableAllButtons();
             
             // Check if win
             if(gameInstance.correctLetters.length === gameInstance.word.length){
-                $winLosePopup.text("You Win 😊!\nPlease play again");
+                $winLosePopup.html("You Win 😊!<br>Please play again");
             }
             // else is a loss
             else{
-                $winLosePopup.text("You Lose 😞 The word was: " + gameInstance.word, "\nPlease play again");
+                $winLosePopup.html("You Lose 😞 The word was: " + gameInstance.word + "<br>Please play again");    
             }
             
             popupInterval = setInterval(popup, interval);
@@ -73,7 +71,7 @@ function newGame(){
     word = wordFetcher.getWord();
     gameInstance    = new HangmanGame(word.word);
      // Reset picture
-    $gallowContainer.attr('src', `images/Gallows/Gallows0.png`);
+    $gallowContainer.attr('src', defaultImagePath);
    
     // Reset the popup
     opacityValue = 0;
@@ -104,6 +102,8 @@ function popup()
     if(opacityValue >= 1)
     {
         opacityValue = 1;
+         // Stop the interval once opacity is fully set
+        clearInterval(popupInterval);
         return;
     }
     

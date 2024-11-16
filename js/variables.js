@@ -8,6 +8,8 @@ const $guess                    = $("#guess");
 const $letters                  = $("#letters");
 const $winLosePopup             = $("#winLosePopup");
 
+const defaultImagePath          = 'images/Gallows/Gallows0.png';
+
 // Game variables
 word                            = "";
 gameInstance                    = null;

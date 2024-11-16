@@ -10,6 +10,7 @@ class WordFetcher {
       this.words = [];
     }
 
+    // Fetch the words from the JSON file
     async fetchWords() {
 
         try {
@@ -25,10 +26,11 @@ class WordFetcher {
         }
     }
 
+    // Get a random word from the list
     getWord(){
-
-        // Get a random word from the list
+        // Ensure it is an integer by flooring it
         const random = Math.floor(Math.random() * this.words.length);
+
         return this.words[random];
     }   
 }

@@ -63,7 +63,7 @@ class HangmanGame {
     isGameOver() 
     {
         if (this.attemptsLeft === 0) {
-            return false;
+            return true;
         } 
         else{
             return this.correctLetters.length === this.word.length;

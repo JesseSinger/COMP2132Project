@@ -1,7 +1,7 @@
 export { HangmanGame };
 
 
-const maxAttempts = 6;
+const maxAttempts = 9;
 
 
 class HangmanGame {
@@ -24,22 +24,21 @@ class HangmanGame {
 
     // Check if the letter is part of the word
     guessLetter(letter) {
-
         letter = letter.toUpperCase();
 
         if (this.guessedLetters.includes(letter)) {
-
-            return { success: false, message: "You already guessed that letter." };
+            return false;
         }
 
         this.guessedLetters.push(letter);
 
         if (this.word.includes(letter)) {
             this.correctLetters.push(letter);
-            return { success: true, message: "Correct guess!" };
-        } else {
+            return true; 
+        }
+        else {
             this.attemptsLeft--;
-            return { success: false, message: "Incorrect guess!" };
+            return false;
         }
     }
 
@@ -47,23 +46,27 @@ class HangmanGame {
     getWordDisplay() {
         let display = '';
         for (let letter of this.word) {
-            if (this.correctLetters.includes(letter)) {
+            if (this.correctLetters.includes(letter)) 
+            {
                 display += letter + ' ';
-            } else {
+            } 
+            else 
+            {
                 display += '_ ';
             }
         }
-        return display.trim();
+
+        return display;
     }
 
     // Check if the game is over (win or lose)
-    isGameOver() {
+    isGameOver() 
+    {
         if (this.attemptsLeft === 0) {
-            return { gameOver: true, message: `You lost! The word was: ${this.word}` };
+            return false;
+        } 
+        else{
+            return this.correctLetters.length === this.word.length;
         }
-        if (this.correctLetters.length === [...new Set(this.word)].length) {
-            return { gameOver: true, message: "You won! Congratulations!" };
-        }
-        return { gameOver: false };
     }
 }

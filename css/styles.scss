@@ -18,9 +18,6 @@ h1, h2 {
     margin-bottom: 10px;    
 }
 
-#gallowContainer{
-    width: 400px;
-}
 li {
     margin-left: 10px;
 }
@@ -36,7 +33,6 @@ nav {
     text-align: center;
 }
 
-/* Footer */
 footer {
     text-align: center;
     background-color: #2a4f2b;
@@ -44,7 +40,6 @@ footer {
     padding: 30px 0;
     margin-top: 20px;
 }
-
 
 nav ul {
     display: flex;
@@ -68,6 +63,12 @@ nav ul li a {
 /* Pseudoclass selector for hover effect */
 nav ul li a:hover {
     background-color: #555;
+}
+
+
+img {
+    align-items: center; 
+    width: 400px;
 }
 
 #content{
@@ -94,6 +95,10 @@ nav ul li a:hover {
     font-size: 30px;
 }
 
+#gallowContainer{
+    width: 400px;
+}
+
 #hint{
     text-align: center;
     font-size: 14px;
@@ -117,6 +122,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 10px;
 }
+
 
 @mixin alphabetButtonStyle($bg-color-enabled, $bg-color-disabled, $text-color-enabled, $text-color-disabled, $click-color, $padding: 10px, $font-size: 24px, $margin-topBot: 10px, $margin-rightLeft: 5px) {
     // General button styles
@@ -160,14 +166,6 @@ nav ul li a:hover {
     @include alphabetButtonStyle(grey, #d6d6d6, #fff, #aaa, red);
 }
 
-
-
-img {
-    align-items: center; 
-    width: 400px;
-}
-
-
 #winLosePopup {
     position: absolute;
     width: 450px;
@@ -185,6 +183,7 @@ img {
     justify-content: center;  /* Horizontally center the text */
     align-items: center;      /* Vertically center the text */
 }
+
 /* Responsive Styles */
 /* Mobile Devices */
 @media (max-width: 599px) {
@@ -235,6 +234,7 @@ img {
     nav ul {
         flex-direction: row; /* Now that we have more room, expand the nav */
     }
+
     img {
         max-width: 300px; /* Shrinks image further for small screens */
     }  
@@ -245,9 +245,7 @@ img {
         margin: 6px;
     }
 
-    #winLosePopup {
-  
+    #winLosePopup {  
         width: 250px;
     }
 }
-

@@ -1,9 +1,16 @@
-export { HangmanGame };
+// ====================================================
+// Hangman Game - JavaScript
+// COMP 2132 Final Project
+// HangmanGame class for Hangman Game
+// Jesse Singer
+// November 22, 2024
+// ====================================================
 
+export { HangmanGame };
 
 const maxAttempts = 9;
 
-
+// Class for the Hangman Game
 class HangmanGame {
     constructor(word) {
         // Each hangman game has a unique word to guess

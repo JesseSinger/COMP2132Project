@@ -1,3 +1,11 @@
+// ====================================================
+// Hangman Game - JavaScript
+// COMP 2132 Final Project
+// Variables file for Hangman Game
+// Jesse Singer
+// November 22, 2024
+// ====================================================
+
 // JQuery variables
 const $wordReveal               = $("#wordReveal");
 const $hint                     = $("#hint");
@@ -11,12 +19,11 @@ const $winLosePopup             = $("#winLosePopup");
 const defaultImagePath          = 'images/Gallows/Gallows0.png';
 
 // Game variables
-word                            = "";
+currentWord                     = "";
 gameInstance                    = null;
 wordFetcher                     = null;
 
-//determine delay in milliseconds
-        
+// Determine delay in milliseconds        
 const fadeInMilliseconds        = 3000; // 3 second fade in
 const start                     = Date.now();
 
